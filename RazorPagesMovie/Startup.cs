@@ -58,6 +58,15 @@ namespace RazorPagesMovie
             {
                 endpoints.MapRazorPages();
             });
+
+            var defaultCulture = new CultureInfo("fr-FR");
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(defaultCulture),
+                SupportedCultures = new List<CultureInfo> { defaultCulture },
+                SupportedUICultures = new List<CultureInfo> { defaultCulture }
+            };
+            app.UseRequestLocalization(localizationOptions);
         }
     }
 }
